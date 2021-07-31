@@ -1,0 +1,13 @@
+--- # second playbook
+
+- name: this playbook will install httpd package on all nodes
+  hosts: all
+  remote_user: ec2-user
+  connection: ssh
+  become: yes
+  tasks: 
+   - name: install httpd package
+     #action: yum name=httpd state=installed
+     yum:
+       name: httpd
+       state: present
